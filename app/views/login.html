@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row row-content text-center">
+        <div class="col-xs-12">
+            <h3>Login - Página de administração - Portal do Grande Colorado e Região</h3>
+        </div>
+        <div class="">
+            <form ng-submit="doLogin()">
+                <div class="form-group col-xs-12">
+                    <label class="sr-only" for="username">Usuário</label>
+                    <input type="text" class="form-control input-sm" id="username" placeholder="Usuário" ng-model="loginData.username">
+                </div>
+                <div class="form-group col-xs-12">
+                    <label class="sr-only" for="password">Senha</label>
+                    <input type="password" class="form-control input-sm" id="password" placeholder="Senha" ng-model="loginData.password">
+                </div>
+                <div class="checkbox col-xs-12">
+                    <label>
+                        <input type="checkbox" ng-model="rememberMe"> Lembre-me
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-info btn-sm">Entrar</button>
+            </form>
+        </div>
+    </div>
+</div>

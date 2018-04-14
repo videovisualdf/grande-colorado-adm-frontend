@@ -1,0 +1,125 @@
+
+.row-header {
+  margin: 0px auto;
+  padding: 0px 0px;
+}
+
+.row-content {
+  margin: 0px auto;
+  padding: 50px 0px;
+  border-bottom: 1px ridge;
+  min-height: 200px;
+}
+.row-footer {
+  margin: 0px auto;
+  padding: 20px 0px;
+  background-color: #e0c0be;
+}
+.jumbotron {
+  margin: 0px auto;
+  padding: 70px 30px;
+  background: #cb7979;
+  color: floralwhite;
+}
+
+.carousel {
+  background: #7e201a;
+}
+.carousel .item {
+  height: 300px;
+}
+.carousel .item img {
+  left: 0;
+  min-height: 300px;
+  position: absolute;
+  top: 0;
+}
+.navbar-inverse {
+  background: #9f3a30;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > li > a {
+  background-color: #9f3a30;
+  color: #eeeeee;
+}
+
+.navbar-inverse .navbar-nav > .active > a {
+  background: #7e201a;
+  color: #ffffff;
+  font-weight: bold;
+}
+.navbar-inverse .navbar-nav > .active > a:hover {
+  background: #7e1d1a;
+  color: #ffffff;
+  font-weight: bold;
+}
+.navbar-inverse .navbar-nav > .active > a:focus {
+  background: #7e1d1a;
+  color: #ffffff;
+  font-weight: bold;
+}
+.navbar-inverse .navbar-nav > .open > a {
+  background: #7e1d1a;
+  color: #ffffff;
+  font-weight: bold;
+}
+.navbar-inverse .navbar-nav > .open > a:hover {
+  background: #7e1d1a;
+  color: #ffffff;
+  font-weight: bold;
+}
+.navbar-inverse .navbar-nav > .open > a:focus {
+  background: #7e1d1a;
+  color: #ffffff;
+  font-weight: bold;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+  background-color: #9f3a30;
+  color: #eeeeee;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
+  color: #581414;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu {
+  background-color: #9f3a30;
+  color: #eeeeee;
+}
+address {
+  color: #0f0f0f;
+  font-size: 80%;
+  margin: 0px;
+}
+a {
+  color: #c22929;
+}
+a:hover {
+  color: #c22929;
+}
+a:visited {
+  color: #6a1616;
+}
+body {
+  align: center;
+  padding: 50px 0px 0px 0px;
+  z-index: 0;
+}
+.tab-content {
+  border-bottom: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  padding: 10px;
+}
+.affix {
+  top: 100px;
+}
+#carouselButtons {
+  bottom: 0px;
+  position: absolute;
+  right: 0px;
+}
+.gi-2x{font-size: 2em;}
+.gi-3x{font-size: 3em;}
+.gi-4x{font-size: 4em;}
+.gi-5x{font-size: 5em;}
+
+.label-footer {font-size: 80%; font-weight: bold;}

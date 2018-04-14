@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="breadcrumb">
+                <li>
+                    <a ui-sref="app">Home</a>
+                </li>
+                <li class="active">Gerenciar Categorias</li>
+            </ul>
+        </div>
+        <div class="col-xs-12">
+            <h3>Categorias Cadastradas</h3>
+            <hr>
+        </div>
+    </div>
+    <div class="row row-content">
+        <div class="col-xs-12">
+            <h4>Buscar Categorias &nbsp;&nbsp;&nbsp;
+                <small>Nome: &nbsp;
+                    <input ng-model="filtraNome">
+                </small>
+            </h4>
+        </div>
+        <div class="col-xs-12" ng-if="showCategorias">
+            <div id="no-more-tables">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="thead-inverse">Categoria</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="cat in categorias | filter: {nome: filtraNome}">
+                            <td data-title="nome">
+                                <a ng-click="editCategoria(cat)">{{cat.nome}}</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="cadastro" class="row row-content">
+        <div class="col-xs-12">
+            <h3>Criar/Alterar/Excluir Categorias</h3>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+            <form class="form-horizontal" name="CategoriaForm" ng-submit="saveCategoria()" novalidate>
+                <div class="form-group" ng-class="{ 'has-error' : CategoriaForm.nome.$error.required && !CategoriaForm.nome.$pristine }">
+                    <label for="nome" class="col-sm-2 control-label">Categoria *</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Entrar nome da categoria" ng-model="Categoria.nome"
+                            required>
+                        <span ng-show="CategoriaForm.nome.$error.required && !CategoriaForm.nome.$pristine" class="help-block">O nome da Categoria é obrigatório.</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-success" ng-disabled="CategoriaForm.$invalid">Salvar Categoria</button>
+                        <button class="btn btn-success" ng-click="deleteCategoria(Categoria.id)">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true">
+                            </span> Excluir Categoria
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+
+        </div>
+    </div>
+
+
+</div>
