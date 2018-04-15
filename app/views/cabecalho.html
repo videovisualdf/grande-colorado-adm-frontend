@@ -13,17 +13,17 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li ng-class="{active: stateis('app.empresa')}">
+                <li ng-if="loggedIn" ng-class="{active: stateis('app.empresa')}">
                     <a ng-click="openEmpresas()">
-                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Empresas</a>
+                        <i class="fa fa-building"></i> Empresas</a>
                 </li>
                 <li ng-if="loggedIn" ng-class="{active: stateis('app.categoria')}">
                     <a ng-click="openCategorias()">
-                        <i class="fa fa-users"></i> Categorias</a>
+                        <i class="fa fa-tasks"></i> Categorias</a>
                 </li>
                 <li ng-if="loggedIn" ng-class="{active: stateis('app.subcategoria')}">
                     <a ng-click="openSubcategorias()">
-                        <i class="fa fa-users"></i> Sub-Categorias</a>
+                        <i class="fa fa-tasks"></i> Sub-Categorias</a>
                 </li>
             </ul>
 

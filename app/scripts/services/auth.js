@@ -5,16 +5,15 @@ angular.module('grande-colorado-adm')
       return Usuario
         .login(loginData)
         .$promise
-        .then(function(response) {
+        .then(function(response) {          
             $rootScope.currentUsuario = {
               id: response.user.id,
               tokenId: response.id,
               username: loginData.username
             };
-            $rootScope.mantendo = true;
+            //$rootScope.mantendo = true;
             $rootScope.$broadcast('login:Successful');
-          },
-          
+          },          
           function(response) {
             var message = '\
                 <div class="ngdialog-message">\
@@ -30,7 +29,7 @@ angular.module('grande-colorado-adm')
             });
           });
     }
-
+    
     function isAuthenticated() {
       if ($rootScope.currentUsuario) {
         return true;
@@ -57,42 +56,9 @@ angular.module('grande-colorado-adm')
         });
     }
 
-    function register(registerData) {
-      return Usuario
-        .create({
-          username: registerData.username,
-          email: registerData.email,
-          password: registerData.password,
-          firstName: registerData.firstName,
-          lastName: registerData.lastName,
-        })
-        .$promise
-        .then(function(response) {
-            var message = '\
-              <div class="ngdialog-message">\
-              <div><h3>Usuário registrado com sucesso!</h3></div>' +
-              '<div><p>Por favor acesse o sistema utilizando as informações registradas</p></div>';
-            ngDialog.openConfirm({
-              template: message,
-              plain: 'true'
-            });
-          },
-          function(response) {
-            var message = '\
-                <div class="ngdialog-message">\
-                <div><h3>Registro não realizado</h3></div>' +
-              '<div><p>' + response.data.error.message +
-              '</p><p>' + response.data.error.name + '</p></div>';
-            ngDialog.openConfirm({
-              template: message,
-              plain: 'true'
-            });
-          });
-    }
     return {
       login: login,
       logout: logout,
-      register: register,
       isAuthenticated: isAuthenticated,
       getUsername: getUsername,
       getUsuarioId: getUsuarioId

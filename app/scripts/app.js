@@ -18,7 +18,7 @@ angular.module('grande-colorado-adm', ['ui.router','ngResource', 'ngDialog', 'lb
             })
             // rota para a página de categoria
             .state('app.categoria', {
-                url:'Categoria',
+                url:'Categorias/',
                 views: {
                     'conteudo@': {
                         templateUrl : 'views/categoria.html',
@@ -28,7 +28,7 @@ angular.module('grande-colorado-adm', ['ui.router','ngResource', 'ngDialog', 'lb
             })
             // rota para a página de subcategoria
             .state('app.subcategoria', {
-                url:'Subcategoria',
+                url:'Subcategorias/',
                 views: {
                     'conteudo@': {
                         templateUrl : 'views/subcategoria.html',
@@ -38,9 +38,9 @@ angular.module('grande-colorado-adm', ['ui.router','ngResource', 'ngDialog', 'lb
             })
             // rota para a página de empresas
             .state('app.empresa', {
-                url: 'Empresa/:id',
+                url: 'Empresas/',
                 views: {
-                    'content@': {
+                    'conteudo@': {
                         templateUrl : 'views/empresa.html',
                         controller  : 'EmpresaController'
                     }

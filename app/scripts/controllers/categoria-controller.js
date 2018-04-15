@@ -1,36 +1,42 @@
 'use strict';
 angular.module('grande-colorado-adm')
   .controller('CategoriaController', ['$scope', 'Categoria', 'Usuario', '$stateParams', '$state', 'ngDialog',
-    function($scope, Categoria, Usuario, $stateParams, $state, ngDialog) {
+    function ($scope, Categoria, Usuario, $stateParams, $state, ngDialog) {
       $scope.showCategorias = false;
       $scope.message = "Loading ...";
+
       Categoria.find({
         filter: {
           order: ['nome ASC']//,
           //include: {relation: 'usuario'}
         }
       })
-      .$promise.then(
-        function(response) {
-          $scope.categorias = response;
-          $scope.showCategorias = true;
-        },
-        function(response) {
-          $scope.message = "Error: " + response.status + " " + response.statusText;
-        });
-      $scope.editCategoria = function(Categoria) {
+        .$promise.then(
+          function (response) {
+            $scope.categorias = response;
+            $scope.showCategorias = true;
+          },
+          function (response) {
+            $scope.message = "Error: " + response.status + " " + response.statusText;
+          });
+
+      $scope.editCategoria = function (Categoria) {
         $scope.Categoria = Categoria;
       };
-      $scope.saveCategoria = function() {
+
+      $scope.saveCategoria = function () {
+        //console.log($stateParams);
+        /*
         if (!$scope.Categoria.usuarioId) {
           $scope.Categoria.usuarioId = $stateParams.id;
         }
+        */
         Categoria.updateAttributes({
-            usuarioId: $scope.Categoria.usuarioId,
-            nome: $scope.Categoria.nome,            
-          })
+          id: $scope.Categoria.id,
+          nome: $scope.Categoria.nome,
+        })
           .$promise.then(
-            function(response) {
+            function (response) {
               var message = '\
               <div class="ngdialog-message">\
                 <div><h3>Categoria salva com sucesso</h3></div>' +
@@ -43,12 +49,15 @@ angular.module('grande-colorado-adm')
               });
               $state.reload();
             },
-            function(response) {
+            function (response) {
+              //console.log('entrou');              
               var message = '\
               <div class="ngdialog-message">\
                 <div><h3>Categoria não salva!</h3></div>' +
+                /*
                 '<div><p>' + response.data.error.message + '</p><p>' +
                 response.data.error.name + '</p></div>' +
+                */
                 '<div class="ngdialog-buttons">\
                     <button type="button" class="ngdialog-button" ng-click=confirm("OK")>OK</button>\
                 </div>';
@@ -59,13 +68,16 @@ angular.module('grande-colorado-adm')
             }
           );
       };
-      $scope.deleteCategoria = function(CategoriaId) {
-        var facId = $scope.Categoria.usuarioId;
+
+      $scope.deleteCategoria = function (CategoriaId) {
+        var catId = $scope.Categoria.categoriaId;
+        //console.log($scope.Categoria.categoriaId);
+
         Categoria.deleteById({
-            id: CategoriaId
-          })
+          id: CategoriaId
+        })
           .$promise.then(
-            function(response) {
+            function (response) {
               var message = '\
               <div class="ngdialog-message">\
                 <div><h3>Categoria excluída com sucesso!</h3></div>' +
@@ -78,7 +90,7 @@ angular.module('grande-colorado-adm')
               });
               $state.reload();
             },
-            function(response) {
+            function (response) {
               var message = '\
               <div class="ngdialog-message">\
                 <div><h3>Categoria não foi excluída!</h3></div>' +
@@ -95,18 +107,18 @@ angular.module('grande-colorado-adm')
           );
       };
 
-//Código accordion angular-ui-bootstrap
+      //Código accordion angular-ui-bootstrap
       $scope.umPorVez = false;
       $scope.expandir = false;
       $scope.expandirGrupo = false;
 
-      $scope.inverte = function(status){
+      $scope.inverte = function (status) {
         $scope.expandir = !status;
       };
 
-//Fim Código accordion angular-ui-bootstrap
+      //Fim Código accordion angular-ui-bootstrap
 
     }
   ])
 
-;
+  ;

@@ -1,0 +1,138 @@
+
+/*Meus estilos começam aqui*/
+
+.row-content {
+  margin: 0px auto;
+  padding: 30px 0px;
+  min-height: 200px;
+}
+
+body {
+  align: center;
+  /*
+  padding: 50px 0px 0px 0px;
+  */
+  z-index: 0;
+}
+
+.navbar-toggle, .icon-bar {
+    /*border:1px solid green;*/
+    border:1px solid;
+}
+
+/*Tabelas responsivas*/
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Zebra striping */
+
+tr:nth-of-type(odd) {
+  background: #eee;
+}
+th {
+  background: #333;
+  color: white;
+  font-weight: bold;
+}
+td, th {
+  padding: 6px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+/*
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media
+only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {
+
+  /* Force table to not be like tables anymore */
+  #no-more-tables table, #no-more-tables thead, #no-more-tables tbody, #no-more-tables th, #no-more-tables td, #no-more-tables tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  #no-more-tables thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  #no-more-tables tr { border: 1px solid #ccc; }
+
+  #no-more-tables td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 33%;
+    white-space: normal;
+		text-align:left;
+  }
+
+
+   #no-more-tables td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align:left;
+		font-weight: bold;
+  }
+
+  /* Label the data */
+  #no-more-tables td:before { content: attr(data-title);
+  }
+}
+/* Fim Tabelas responsivas*/
+
+/*Breadcrumbs customizável*/
+/*customize breadcrumb*/
+.breadcrumb {
+     background-color: white;
+     color: black !important;
+     border-radius: 0;
+     -moz-border-radius: 0;
+     -webkit-border-radius: 0;
+     -o-border-radius: 0;
+     background-image: linear-gradient(to bottom, #c6f68d, #c9f793);
+}
+
+/*change breadcrumb links color*/
+.breadcrumb a {
+     color: #666;
+}
+
+.breadcrumb a:hover {
+     text-decoration: none;
+}
+
+/*change active color*/
+.breadcrumb > .active {
+     color: #080707;
+}
+
+/*change breadcrumb separator to raquo symbol*/
+.breadcrumb > li + li:before {
+     content: "\00BB";
+     color: #aaa;
+}
+/*Fim Breadcrumbs customizável*/
+
+.meuContainer {
+  width: 120px;
+}
+
+.meuContainer img {
+/*  max-height: 100%;*/
+  max-width: 100%;
+}

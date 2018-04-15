@@ -13,9 +13,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 (function(window, angular, undefined) {
   'use strict';
   //Para desenvolvimento apenas
-  //var urlBase = "http://0.0.0.0:3000/api";
-  var urlBase = "http://localhost:3000/api";
-  //var urlBase = "/api";
+  //var urlBase = "http://note:5000/api";
+  //var urlBase = "http://localhost:3000/api";
+  var urlBase = "/api";
   var authHeader = 'authorization';
 
   function getHost(url) {

@@ -34,12 +34,7 @@ angular.module('grande-colorado-adm')
         $scope.loggedIn = AuthService.isAuthenticated();
         $scope.username = AuthService.getUsername();
         $scope.usuarioId = AuthService.getUsuarioId();
-        $state.go('app.facilitadores');
-      });
-      $rootScope.$on('registration:Successful', function () {
-        $scope.loggedIn = AuthService.isAuthenticated();
-        $scope.username = AuthService.getUsername();
-        $scope.usuarioId = AuthService.getUsuarioId();
+        $state.go('app.categoria');
       });
       $scope.stateis = function (curstate) {
         return $state.is(curstate);
