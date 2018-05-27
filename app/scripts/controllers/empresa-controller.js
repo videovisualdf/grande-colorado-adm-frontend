@@ -1,7 +1,7 @@
 'use strict';
 angular.module('grande-colorado-adm')
-  .controller('EmpresaController', ['$scope', 'Empresa', 'Categoria', 'Subcategoria', '$stateParams', '$state', 'ngDialog',
-    function ($scope, Empresa, Categoria, Subcategoria, $stateParams, $state, ngDialog) {
+  .controller('EmpresaController', ['$scope', 'Empresa', 'Categoria', 'Subcategoria', '$stateParams', '$state', 'ngDialog', '$location', '$anchorScroll',
+    function ($scope, Empresa, Categoria, Subcategoria, $stateParams, $state, ngDialog, $location, $anchorScroll) {
       $scope.showEmpresas = false;
       $scope.message = "Loading ...";
       $scope.ativo = $stateParams.ativo;
@@ -52,6 +52,8 @@ angular.module('grande-colorado-adm')
 
       $scope.editEmpresa = function (Empresa) {
         $scope.Empresa = Empresa;
+        $location.hash('cadastro');
+        $anchorScroll();
       };
       $scope.saveEmpresa = function () {        
         Empresa.updateAttributes({

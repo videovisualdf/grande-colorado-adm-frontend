@@ -1,14 +1,13 @@
 'use strict';
 angular.module('grande-colorado-adm')
-  .controller('CategoriaController', ['$scope', 'Categoria', 'Usuario', '$stateParams', '$state', 'ngDialog',
-    function ($scope, Categoria, Usuario, $stateParams, $state, ngDialog) {
+  .controller('CategoriaController', ['$scope', 'Categoria', 'Usuario', '$stateParams', '$state', 'ngDialog', '$location', '$anchorScroll',
+    function ($scope, Categoria, Usuario, $stateParams, $state, ngDialog, $location, $anchorScroll) {
       $scope.showCategorias = false;
       $scope.message = "Loading ...";
 
       Categoria.find({
         filter: {
-          order: ['nome ASC']//,
-          //include: {relation: 'usuario'}
+          order: ['nome ASC']
         }
       })
         .$promise.then(
@@ -22,18 +21,15 @@ angular.module('grande-colorado-adm')
 
       $scope.editCategoria = function (Categoria) {
         $scope.Categoria = Categoria;
+        $location.hash('cadastro');
+        $anchorScroll();
       };
 
       $scope.saveCategoria = function () {
-        //console.log($stateParams);
-        /*
-        if (!$scope.Categoria.usuarioId) {
-          $scope.Categoria.usuarioId = $stateParams.id;
-        }
-        */
         Categoria.updateAttributes({
           id: $scope.Categoria.id,
           nome: $scope.Categoria.nome,
+          icone: $scope.Categoria.icone
         })
           .$promise.then(
             function (response) {
@@ -50,14 +46,9 @@ angular.module('grande-colorado-adm')
               $state.reload();
             },
             function (response) {
-              //console.log('entrou');              
               var message = '\
               <div class="ngdialog-message">\
                 <div><h3>Categoria não salva!</h3></div>' +
-                /*
-                '<div><p>' + response.data.error.message + '</p><p>' +
-                response.data.error.name + '</p></div>' +
-                */
                 '<div class="ngdialog-buttons">\
                     <button type="button" class="ngdialog-button" ng-click=confirm("OK")>OK</button>\
                 </div>';
@@ -71,8 +62,6 @@ angular.module('grande-colorado-adm')
 
       $scope.deleteCategoria = function (CategoriaId) {
         var catId = $scope.Categoria.categoriaId;
-        //console.log($scope.Categoria.categoriaId);
-
         Categoria.deleteById({
           id: CategoriaId
         })
@@ -107,18 +96,33 @@ angular.module('grande-colorado-adm')
           );
       };
 
-      //Código accordion angular-ui-bootstrap
-      $scope.umPorVez = false;
-      $scope.expandir = false;
-      $scope.expandirGrupo = false;
-
-      $scope.inverte = function (status) {
-        $scope.expandir = !status;
+      $scope.carregaFotoRedimensionada = function (event) {
+        var outputImage = document.getElementById('outputImage');
+        file = event.files[0];
+        var file, img, width, height, ratio, nWidth, nHeight, proporcao;
+        var _URL = (window.URL) ? window.URL : window.webkitURL;
+        img = new Image();
+        img.src = _URL.createObjectURL(file);
+        img.onload = function () {
+          width = this.width;
+          height = this.height;
+          //console.log('Resolução: ' + height + 'X' + width);
+          //console.log('Tamanho: ' + file.size);
+          // Criação do elemento canvas
+          var canvas = document.createElement("canvas");
+          var ctx = canvas.getContext("2d");
+          //Cálculo da proporção
+          if (file.size > 10000000)
+            proporcao = Math.sqrt(10000000 / file.size);
+          else proporcao = 1;
+          canvas.width = width * proporcao;
+          canvas.height = height * proporcao;
+          // 1º passo
+          ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+          outputImage.src = canvas.toDataURL("image/jpeg");
+          $scope.Categoria.icone = canvas.toDataURL("image/jpeg");
+        };
       };
 
-      //Fim Código accordion angular-ui-bootstrap
-
     }
-  ])
-
-  ;
+  ]);

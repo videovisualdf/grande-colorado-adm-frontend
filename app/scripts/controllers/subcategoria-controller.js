@@ -1,7 +1,7 @@
 'use strict';
 angular.module('grande-colorado-adm')
-  .controller('SubcategoriaController', ['$scope', 'Subcategoria', 'Categoria', '$stateParams', '$state', 'ngDialog',
-    function ($scope, Subcategoria, Categoria, $stateParams, $state, ngDialog) {
+  .controller('SubcategoriaController', ['$scope', 'Subcategoria', 'Categoria', '$stateParams', '$state', 'ngDialog', '$location', '$anchorScroll',
+    function ($scope, Subcategoria, Categoria, $stateParams, $state, ngDialog, $location, $anchorScroll) {
       $scope.showSubcategorias = false;
       $scope.message = "Loading ...";
       $scope.ativo = $stateParams.ativo;
@@ -43,6 +43,8 @@ angular.module('grande-colorado-adm')
 
       $scope.editSubcategoria = function (Subcategoria) {
         $scope.Subcategoria = Subcategoria;
+        $location.hash('cadastro');
+        $anchorScroll();
       };
       $scope.saveSubcategoria = function () {
         Subcategoria.updateAttributes({

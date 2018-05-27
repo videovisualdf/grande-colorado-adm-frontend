@@ -26,15 +26,17 @@
                 <table>
                     <thead>
                         <tr>
-                            <!--<th class="thead-inverse">-</th>-->
+                            <th class="thead-inverse">Ícone</th>
                             <th class="thead-inverse">Categoria</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="cat in categorias | filter: {nome: filtraNome}">
-                            <!--<td data-title="nome">
-                                <a ng-click="editCategoria(cat)">Nome:</a>
-                            </td>-->
+                            <td class="no-more-tables" data-title="Icone">
+                                <a ng-click="editCategoria(cat)">
+                                    <img width="60" class="img-circle" height="60" ng-src="{{cat.icone}}" />
+                                </a>
+                            </td>
                             <td data-title="nome">
                                 <a ng-click="editCategoria(cat)">{{cat.nome}}</a>
                             </td>
@@ -57,6 +59,14 @@
                         <input type="text" class="form-control" id="nome" name="nome" placeholder="Entrar nome da categoria" ng-model="Categoria.nome"
                             required>
                         <span ng-show="CategoriaForm.nome.$error.required && !CategoriaForm.nome.$pristine" class="help-block">O nome da Categoria é obrigatório.</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="icone" class="col-sm-2 control-label">Ícone</label>
+                    <div class="col-sm-10">
+                        <input type="file" accept="image/*" id="icone" name="icone" onchange="angular.element(this).scope().carregaFotoRedimensionada(this)">
+                        <input type="hidden" id="icone1" name="icone1" ng-model="Categoria.icone">
+                        <img id="outputImage" class="img-fluid" width="60" height="60" ng-src="{{Categoria.icone}}" />
                     </div>
                 </div>
                 <div class="form-group">
