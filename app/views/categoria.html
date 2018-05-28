@@ -34,7 +34,7 @@
                         <tr ng-repeat="cat in categorias | filter: {nome: filtraNome}">
                             <td class="no-more-tables" data-title="Icone">
                                 <a ng-click="editCategoria(cat)">
-                                    <img width="60" class="img-circle" height="60" ng-src="{{cat.icone}}" />
+                                    <img class="img-circle" height="25" ng-src="{{cat.icone}}" />
                                 </a>
                             </td>
                             <td data-title="nome">
@@ -64,7 +64,7 @@
                 <div class="form-group">
                     <label for="icone" class="col-sm-2 control-label">Ícone</label>
                     <div class="col-sm-10">
-                        <input type="file" accept="image/*" id="icone" name="icone" onchange="angular.element(this).scope().carregaFotoRedimensionada(this)">
+                        <input type="file" accept="image/*" id="icone" name="icone" onchange="angular.element(this).scope().carregaFoto(this)">
                         <input type="hidden" id="icone1" name="icone1" ng-model="Categoria.icone">
                         <img id="outputImage" class="img-fluid" width="60" height="60" ng-src="{{Categoria.icone}}" />
                     </div>

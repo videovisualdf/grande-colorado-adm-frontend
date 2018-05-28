@@ -25,11 +25,11 @@ angular.module('grande-colorado-adm')
           include: {
             relation: 'categoria', 
             scope: {
-              fields: ['nome'],
-              order: ['nome DESC']
+              fields: ['nome', 'icone'],
+              order: ['categoria.nome ASC']
             }
           },
-          order: ['categoria.nome ASC', 'nome ASC']
+          order: ['categoria.nome ASC']
         }
       })
         .$promise.then(
@@ -117,18 +117,6 @@ angular.module('grande-colorado-adm')
             }
           );
       };
-
-      //Código accordion angular-ui-bootstrap
-      $scope.umPorVez = false;
-      $scope.expandir = false;
-      $scope.expandirGrupo = false;
-
-      $scope.inverte = function (status) {
-        $scope.expandir = !status;
-      };
-
-      //Fim Código accordion angular-ui-bootstrap
-
     }
   ])
 

@@ -15,10 +15,13 @@
     </div>
     <div class="row row-content">
         <div class="col-xs-12">
-            <h4>Buscar Sub-Categorias &nbsp;&nbsp;&nbsp;
-                <small>Nome: &nbsp;
-                    <input ng-model="filtraNome">
-                </small>
+            <h4>Filtrar por Categoria:
+                <select id="categoria" name="categoria" ng-model="filtraCategoria">
+                    <option value="">---Selecione uma Categoria---</option>
+                    <option ng-repeat="cat in categorias" value="{{cat.nome}}">
+                        <img class="img-circle" height="25" ng-src="{{cat.icone}}" /> {{cat.nome}}
+                    </option>
+                </select>
             </h4>
         </div>
         <div class="col-xs-12" ng-if="showSubcategorias">
@@ -31,9 +34,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="subcat in Subcategorias | filter: {nome: filtraNome}">
+                        <tr ng-repeat="subcat in Subcategorias | orderBy: categoria | filter: filtraCategoria">
                             <td data-title="Categoria">
-                                <a ng-click="editSubcategoria(subcat)">{{subcat.categoria.nome}}</a>
+                                <a ng-click="editSubcategoria(subcat)">
+                                    <img class="img-circle" height="25" ng-src="{{subcat.categoria.icone}}" /> {{subcat.categoria.nome}}
+                                </a>
                             </td>
                             <td data-title="nome">
                                 <a ng-click="editSubcategoria(subcat)">{{subcat.nome}}</a>
@@ -44,6 +49,8 @@
             </div>
         </div>
     </div>
+
+
 
     <div id="cadastro" class="row row-content">
         <div class="col-xs-12">
@@ -56,7 +63,9 @@
                     <div class="col-sm-10">
                         <select class="form-control" id="categoria" name="categoria" ng-model="Subcategoria.categoriaId" required>
                             <option value="">---Selecione uma Categoria---</option>
-                            <option ng-repeat="cat in categorias" value="{{cat.id}}">{{cat.nome}}</option>
+                            <option ng-repeat="cat in categorias" value="{{cat.id}}">
+                                <img class="img-circle" height="25" ng-src="{{cat.icone}}" /> {{cat.nome}}
+                            </option>
                         </select>
                         <span ng-show="SubCategoriaForm.categoria.$error.required && !SubCategoriaForm.categoria.$pristine" class="help-block">A categoria é obrigatória.</span>
                     </div>
@@ -64,7 +73,8 @@
                 <div class="form-group" ng-class="{ 'has-error' : SubCategoriaForm.nome.$error.required && !SubCategoriaForm.nome.$pristine }">
                     <label for="nome" class="col-sm-2 control-label">Sub-Categoria *</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Entrar nome da subcategoria" ng-model="Subcategoria.nome" required>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Entrar nome da subcategoria" ng-model="Subcategoria.nome"
+                            required>
                         <span ng-show="SubCategoriaForm.nome.$error.required && !SubCategoriaForm.nome.$pristine" class="help-block">O nome da Sub-Categoria é obrigatório.</span>
                     </div>
                 </div>

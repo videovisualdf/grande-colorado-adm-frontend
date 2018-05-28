@@ -124,5 +124,43 @@ angular.module('grande-colorado-adm')
         };
       };
 
+      $scope.carregaFoto = function(event) {
+        var output = document.getElementById('outputImage');
+        file = event.files[0];
+        if (file.size>10000000){
+          var file, img, width, height, ratio, nWidth, nHeight, proporcao;
+          var _URL = (window.URL) ? window.URL : window.webkitURL;
+          img = new Image();
+          img.src = _URL.createObjectURL(file);
+          img.onload = function () {
+              width = this.width;
+              height = this.height;
+              console.log('Resolução: ' + height + 'X' + width);
+              console.log('Tamanho: ' + file.size);
+              // Criação do elemento canvas
+              var canvas = document.createElement("canvas");
+              var ctx = canvas.getContext("2d");
+              //Cálculo da proporção
+              proporcao = Math.sqrt(10000000/file.size);
+              canvas.width = width * proporcao;
+              canvas.height = height * proporcao;
+              // 1º passo
+              ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+              outputImage.src = canvas.toDataURL("image/jpeg");
+              $scope.Categoria.icone = canvas.toDataURL("image/jpeg");
+          };
+        }
+        else {
+          output.src = URL.createObjectURL(file);
+          var reader = new FileReader();
+          reader.onloadend = function() {
+            $scope.Categoria.icone = reader.result;
+            $scope.$apply();
+          }
+          reader.readAsDataURL(file);
+          $scope.Categoria.icone = reader.result;
+        }
+      };
+
     }
   ]);
