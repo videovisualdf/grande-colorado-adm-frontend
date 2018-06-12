@@ -46,6 +46,16 @@ angular.module('grande-colorado-adm', ['ui.router','ngResource', 'ngDialog', 'lb
                     }
                 }
             })
+            // rota para a página de categorias/subcategorias/destaques de empresas
+            .state('app.categorias-empresa', {
+                url: 'Empresas/:id/CategoriasEmpresas',
+                views: {
+                    'conteudo@': {
+                        templateUrl : 'views/categorias-empresa.html',
+                        controller  : 'CategoriasEmpresaController'
+                    }
+                }
+            })
             ;
         $urlRouterProvider.otherwise('/');
     })

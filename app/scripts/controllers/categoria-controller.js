@@ -95,7 +95,7 @@ angular.module('grande-colorado-adm')
             }
           );
       };
-
+/*
       $scope.carregaFotoRedimensionada = function (event) {
         var outputImage = document.getElementById('outputImage');
         file = event.files[0];
@@ -112,8 +112,8 @@ angular.module('grande-colorado-adm')
           var canvas = document.createElement("canvas");
           var ctx = canvas.getContext("2d");
           //Cálculo da proporção
-          if (file.size > 10000000)
-            proporcao = Math.sqrt(10000000 / file.size);
+          if (file.size > 100000)
+            proporcao = Math.sqrt(100000 / file.size);
           else proporcao = 1;
           canvas.width = width * proporcao;
           canvas.height = height * proporcao;
@@ -123,11 +123,11 @@ angular.module('grande-colorado-adm')
           $scope.Categoria.icone = canvas.toDataURL("image/jpeg");
         };
       };
-
+*/
       $scope.carregaFoto = function(event) {
         var output = document.getElementById('outputImage');
         file = event.files[0];
-        if (file.size>10000000){
+        if (file.size>100000){
           var file, img, width, height, ratio, nWidth, nHeight, proporcao;
           var _URL = (window.URL) ? window.URL : window.webkitURL;
           img = new Image();
@@ -141,7 +141,7 @@ angular.module('grande-colorado-adm')
               var canvas = document.createElement("canvas");
               var ctx = canvas.getContext("2d");
               //Cálculo da proporção
-              proporcao = Math.sqrt(10000000/file.size);
+              proporcao = Math.sqrt(100000/file.size);
               canvas.width = width * proporcao;
               canvas.height = height * proporcao;
               // 1º passo

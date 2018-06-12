@@ -1,0 +1,102 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="breadcrumb">
+                <li>
+                    <a ui-sref="app">Home</a>
+                </li>
+                <li class="active">Gerenciar Empresa</li>
+            </ul>
+        </div>
+        <div class="col-xs-12">
+            <h3>Categorias/Sub-Categorias/Destaques Cadastrados - <b>{{Empresa.nome}}</b></h3>
+            <hr>
+        </div>
+    </div>
+    <div class="row row-content">
+        <div class="col-xs-12" ng-if="showSubcategorias">
+            <div id="no-more-tables">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="thead-inverse">Categoria</th>
+                            <th class="thead-inverse">Sub-Categoria</th>
+                            <th class="thead-inverse">Destaque?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="cat in CategoriasEmpresa | orderBy: categoria.nome">
+                            <td data-title="Categoria">
+                                <a ng-click="editCategoriasEmpresa(cat)">
+                                    <img class="img-circle" height="25" ng-src="{{cat.categoria.icone}}" /> {{cat.categoria.nome}}
+                                </a>
+                            </td>
+                            <td data-title="Subcategoria">
+                                <a ng-click="editCategoriasEmpresa(cat)">{{cat.subcategoria.nome}}</a>
+                            </td>
+                            <td data-title="Destaque">
+                                <a ng-click="editCategoriasEmpresa(cat)">{{cat.destaque}}</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="cadastro" class="row row-content">
+        <div class="col-xs-12">
+            <h3>Criar/Alterar/Excluir Categorias/Subcategorias/Destaque da Empresa</h3>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+            <form class="form-horizontal" name="CategoriasEmpresaForm" ng-submit="saveCategoriasEmpresa()" novalidate>
+                <div class="form-group" ng-class="{ 'has-error' : CategoriasEmpresaForm.categoria.$error.required && !CategoriasEmpresaForm.categoria.$pristine }">
+                    <label for="categoria" class="col-sm-2 control-label">Categoria *</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="categoria" name="categoria" ng-model="CategoriasEmpresa.categoriaId" required>
+                            <option value="">---Selecione uma Categoria---</option>
+                            <option ng-repeat="cat in categorias" value="{{cat.id}}">
+                                <img class="img-circle" height="25" ng-src="{{cat.icone}}" /> {{cat.nome}}
+                            </option>
+                        </select>
+                        <span ng-show="CategoriasEmpresaForm.categoria.$error.required && !CategoriasEmpresaForm.categoria.$pristine" class="help-block">A categoria é obrigatória.</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="subcategoria" class="col-sm-2 control-label">SubCategoria</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="subcategoria" name="subcategoria" ng-model="CategoriasEmpresa.subcategoriaId">
+                            <option value="">---Selecione uma Subcategoria---</option>
+                            <option ng-repeat="subcat in Subcategorias | filter: CategoriasEmpresa.categoriaId" value="{{subcat.id}}">
+                                {{subcat.nome}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error' : CategoriasEmpresaForm.destaque.$error.required && !CategoriasEmpresaForm.destaque.$pristine }">
+                    <label for="destaque" class="col-sm-2 control-label">Destaque? *</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="destaque" name="destaque" ng-model="CategoriasEmpresa.destaque" required>
+                            <option value="S">SIM</option>
+                            <option value="N">NÃO</option>
+                        </select>
+                        <span ng-show="CategoriasEmpresaForm.destaque.$error.required && !CategoriasEmpresaForm.destaque.$pristine" class="help-block">O campo destaque é obrigatório.</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary" ng-disabled="CategoriasEmpresaForm.$invalid">Salvar Categoria/Subcategoria/Destaque</button>
+                        <button class="btn btn-primary" ng-click="deleteCategoriasEmpresa(CategoriasEmpresa.id)">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true">
+                            </span> Excluir Categoria/Subcategoria/Destaque
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+        </div>
+    </div>
+</div>
