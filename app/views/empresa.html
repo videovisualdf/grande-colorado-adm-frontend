@@ -34,17 +34,11 @@
                             <th class="thead-inverse">E-mail</th>
                             <th class="thead-inverse">Site</th>
                             <th class="thead-inverse">Facebook</th>
-                            <th class="thead-inverse">Cat/SubCat/Dest.</th>
-                            <!--<th class="thead-inverse">Categoria</th>
-                            <th class="thead-inverse">Sub-Categoria</th>-->
+                            <th class="thead-inverse">Cat/SubCat/Dest.</th>                          
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="emp in Empresas | filter: {nome: filtraNome}">
-                            <!-- <td data-title="Logo">
-                                <a ng-click="editEmpresa(emp)">{{emp.logo}}</a>
-                            </td>
-                        -->
+                        <tr ng-repeat="emp in Empresas | filter: {nome: filtraNome}">                            
                             <td class="no-more-tables" data-title="Logo">
                                 <a ng-click="editEmpresa(emp)">
                                     <img class="img-circle" height="25" ng-src="{{emp.logo}}" />
@@ -76,14 +70,6 @@
                                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Categ/SubCat/Dest.
                                 </a>
                             </td>
-                            <!--
-                            <td data-title="Categoria">
-                                <a ng-click="editEmpresa(emp)">{{emp.categoria.nome}}</a>
-                            </td>
-                            <td data-title="Sub-Categoria">
-                                <a ng-click="editEmpresa(emp)">{{emp.subcategoria.nome}}</a>
-                            </td>
-                        -->
                         </tr>
                     </tbody>
                 </table>
@@ -97,28 +83,6 @@
         </div>
         <div class="col-xs-12 col-sm-9">
             <form class="form-horizontal" name="empresaForm" ng-submit="saveEmpresa()" novalidate>
-                <!--   
-                <div class="form-group" ng-class="{ 'has-error' : empresaForm.categoria.$error.required && !empresaForm.categoria.$pristine }">
-                    <label for="categoria" class="col-sm-2 control-label">Categoria *</label>
-                    <div class="col-sm-10">
-                        <select class="form-control" id="categoria" name="categoria" ng-model="Empresa.categoriaId" required>
-                            <option value="">---Selecione uma Categoria---</option>
-                            <option ng-repeat="cat in categorias" value="{{cat.id}}">{{cat.nome}}</option>
-                        </select>
-                        <span ng-show="empresaForm.categoria.$error.required && !empresaForm.categoria.$pristine" class="help-block">A categoria é obrigatória.</span>
-                    </div>
-                </div>
-                <div class="form-group" ng-class="{ 'has-error' : empresaForm.subcategoria.$error.required && !empresaForm.subcategoria.$pristine }">
-                    <label for="subcategoria" class="col-sm-2 control-label">Sub-Categoria *</label>
-                    <div class="col-sm-10">
-                        <select class="form-control" id="subcategoria" name="subcategoria" ng-model="Empresa.subcategoriaId" required>
-                            <option value="">---Selecione uma Sub-Categoria---</option>
-                            <option ng-repeat="subcat in subcategorias" value="{{subcat.id}}">{{subcat.categoria.nome}} - {{subcat.nome}}</option>
-                        </select>
-                        <span ng-show="empresaForm.subcategoria.$error.required && !empresaForm.subcategoria.$pristine" class="help-block">A subcategoria é obrigatória.</span>
-                    </div>
-                </div>
-            -->
                 <div class="form-group" ng-class="{ 'has-error' : empresaForm.nome.$error.required && !empresaForm.nome.$pristine }">
                     <label for="nome" class="col-sm-2 control-label">Nome *</label>
                     <div class="col-sm-10">
@@ -191,14 +155,6 @@
                         <input type="text" class="form-control" id="email" name="email" placeholder="Entrar email" ng-model="Empresa.email">
                     </div>
                 </div>
-                <!--
-                <div class="form-group">
-                    <label for="logo" class="col-sm-2 control-label">Logo</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="logo" name="logo" placeholder="Entrar logo" ng-model="Empresa.logo">
-                    </div>
-                </div>
-            -->
                 <div class="form-group">
                     <label for="descricao" class="col-sm-2 control-label">Descrição</label>
                     <div class="col-sm-10">
