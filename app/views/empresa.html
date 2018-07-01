@@ -34,11 +34,11 @@
                             <th class="thead-inverse">E-mail</th>
                             <th class="thead-inverse">Site</th>
                             <th class="thead-inverse">Facebook</th>
-                            <th class="thead-inverse">Cat/SubCat/Dest.</th>                          
+                            <th class="thead-inverse">Cat/SubCat/Dest.</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="emp in Empresas | filter: {nome: filtraNome}">                            
+                        <tr ng-repeat="emp in Empresas | filter: {nome: filtraNome}">
                             <td class="no-more-tables" data-title="Logo">
                                 <a ng-click="editEmpresa(emp)">
                                     <img class="img-circle" height="25" ng-src="{{emp.logo}}" />
@@ -155,10 +155,16 @@
                         <input type="text" class="form-control" id="email" name="email" placeholder="Entrar email" ng-model="Empresa.email">
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" ng-class="{ 'has-error' : empresaForm.descricao.$invalid && !empresaForm.descricao.$pristine }">
                     <label for="descricao" class="col-sm-2 control-label">Descrição</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Entrar descrição" ng-model="Empresa.descricao">
+                        <textarea class="form-control" rows="12" ng-model="facilitador.descricao" placeholder="Entre com uma descrição" required></textarea>
+                        <span ng-show="empresaForm.descricao.$invalid && !empresaForm.descricao.$pristine" class="glyphicon glyphicon-remove form-control-event"
+                            aria-hidden="true"></span>
+                        <span ng-show="(empresaForm.descricao.$invalid || empresaForm.descricao.$error.required) && !empresaForm.descricao.$pristine"
+                            class="help-block">
+                            Favor entrar com uma descrição.
+                        </span>
                     </div>
                 </div>
                 <div class="form-group">
