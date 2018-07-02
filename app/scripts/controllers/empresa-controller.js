@@ -106,10 +106,11 @@ angular.module('grande-colorado-adm')
       };
 
       $scope.carregaFoto = function(event) {
+        var MAX_PHOTO_SIZE = 45000;
         var output = document.getElementById('outputImage');
         file = event.files[0];
-        if (file.size>100000){
-          var file, img, width, height, ratio, nWidth, nHeight, proporcao;
+        if (file.size>MAX_PHOTO_SIZE){
+          var file, img, width, height, proporcao;
           var _URL = (window.URL) ? window.URL : window.webkitURL;
           img = new Image();
           img.src = _URL.createObjectURL(file);
@@ -122,13 +123,15 @@ angular.module('grande-colorado-adm')
               var canvas = document.createElement("canvas");
               var ctx = canvas.getContext("2d");
               //Cálculo da proporção
-              proporcao = Math.sqrt(100000/file.size);
+              proporcao = Math.sqrt(MAX_PHOTO_SIZE/file.size);
               canvas.width = width * proporcao;
               canvas.height = height * proporcao;
               // 1º passo
               ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
               outputImage.src = canvas.toDataURL("image/jpeg");
               $scope.Empresa.logo = canvas.toDataURL("image/jpeg");
+              console.log('Nova Resolução: ' + canvas.height + 'X' + canvas.width);
+              console.log('Novo Tamanho: ' + outputImage.size);
           };
         }
         else {
