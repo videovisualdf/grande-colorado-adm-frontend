@@ -31,6 +31,7 @@ angular.module('grande-colorado-adm')
           ativo: $scope.Empresa.ativo,          
           endereco: $scope.Empresa.endereco,
           telefone: $scope.Empresa.telefone,
+          celular: $scope.Empresa.celular,
           site: $scope.Empresa.site,
           facebook: $scope.Empresa.facebook,
           instagram: $scope.Empresa.instagram,
@@ -106,7 +107,7 @@ angular.module('grande-colorado-adm')
       };
 
       $scope.carregaFoto = function(event) {
-        var MAX_PHOTO_SIZE = 45000;
+        var MAX_PHOTO_SIZE = 100000;
         var output = document.getElementById('outputImage');
         file = event.files[0];
         if (file.size>MAX_PHOTO_SIZE){
