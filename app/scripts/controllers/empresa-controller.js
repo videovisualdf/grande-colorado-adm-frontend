@@ -19,15 +19,16 @@ angular.module('grande-colorado-adm')
             $scope.message = "Error: " + response.status + " " + response.statusText;
           });
 
-      $scope.editEmpresa = function (Empresa) {
+      $scope.editEmpresa = function (Empresa) {              
         $scope.Empresa = Empresa;
         $location.hash('cadastro');
         $anchorScroll();
       };
-      $scope.saveEmpresa = function () {        
+      $scope.saveEmpresa = function () {                
         Empresa.updateAttributes({
           id: $scope.Empresa.id,
-          nome: $scope.Empresa.nome,          
+          nome: $scope.Empresa.nome,
+          regiao: $scope.Empresa.regiao,
           ativo: $scope.Empresa.ativo,          
           endereco: $scope.Empresa.endereco,
           telefone: $scope.Empresa.telefone,
@@ -55,7 +56,7 @@ angular.module('grande-colorado-adm')
               $state.reload();
             },
             function (response) {
-              console.log('entrou');
+              //console.log('entrou');
               var message = '\
               <div class="ngdialog-message">\
                 <div><h3>Empresa não salva!</h3></div>' +

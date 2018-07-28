@@ -12,11 +12,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
 (function(window, angular, undefined) {
   'use strict';
-  //Para desenvolvimento apenas
   //var urlBase = "http://note:5000/api";
   //var urlBase = "http://localhost:3000/api";
   var urlBase = "/api";
-
   var authHeader = 'authorization';
 
   function getHost(url) {
@@ -936,9 +934,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *   populated with the actual data once the response is returned
              *   from the server.
              *
-             * The response body contains properties of the AccessToken created on login.
-             * Depending on the value of `include` parameter, the body may contain additional properties:
-             *   - `user` - `U+007BUserU+007D` - Data of the currently logged in user. (`include=user`)
+             * O corpo de resposta contém propriedades do AccessToken criado no login.
+             * Dependendo do valor do parâmetro `include`, o corpo poderá conter propriedades adicionais:
+             *   - `user` - `U+007BUserU+007D` - Dados do usuário com login efetuado atualmente. (`include=user`)
              *
              */
             "login": {
@@ -2430,9 +2428,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *   populated with the actual data once the response is returned
              *   from the server.
              *
-             * The response body contains properties of the AccessToken created on login.
-             * Depending on the value of `include` parameter, the body may contain additional properties:
-             *   - `user` - `U+007BUserU+007D` - Data of the currently logged in user. (`include=user`)
+             * O corpo de resposta contém propriedades do AccessToken criado no login.
+             * Dependendo do valor do parâmetro `include`, o corpo poderá conter propriedades adicionais:
+             *   - `user` - `U+007BUserU+007D` - Dados do usuário com login efetuado atualmente. (`include=user`)
              *
              */
             "login": {

@@ -27,6 +27,7 @@
                     <thead>
                         <tr>
                             <th class="thead-inverse">Logo</th>
+                            <th class="thead-inverse">Região</th>
                             <th class="thead-inverse">Nome</th>
                             <th class="thead-inverse">Ativo</th>
                             <th class="thead-inverse">Endereço</th>
@@ -44,6 +45,9 @@
                                 <a ng-click="editEmpresa(emp)">
                                     <img class="img-circle" height="25" ng-src="{{emp.logo}}" />
                                 </a>
+                            </td>
+                            <td data-title="Empresa">
+                                <a ng-click="editEmpresa(emp)">{{emp.regiao}}</a>
                             </td>
                             <td data-title="Empresa">
                                 <a ng-click="editEmpresa(emp)">{{emp.nome}}</a>
@@ -93,6 +97,18 @@
                         <input type="text" class="form-control" id="nome" name="nome" placeholder="Entrar nome da empresa" ng-model="Empresa.nome"
                             required>
                         <span ng-show="empresaForm.nome.$error.required && !empresaForm.nome.$pristine" class="help-block">O nome da Empresa é obrigatório.</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error' : empresaForm.regiao.$error.required && !empresaForm.regiao.$pristine }">
+                    <label for="regiao" class="col-sm-2 control-label">Região *</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="regiao" name="regiao" ng-model="Empresa.regiao" required>
+                            <option value="1">1 - Grande Colorado</option>
+                            <option value="2">2 - Sobradinho I e II</option>
+                            <option value="3">3 - Região dos Lagos</option>
+                            <option value="4">4 - DF-425</option>
+                        </select>
+                        <span ng-show="empresaForm.regiao.$error.required && !empresaForm.regiao.$pristine" class="help-block">O preenchimento da região é obrigatório.</span>
                     </div>
                 </div>
                 <div class="form-group" ng-class="{ 'has-error' : empresaForm.ativo.$error.required && !empresaForm.ativo.$pristine }">
