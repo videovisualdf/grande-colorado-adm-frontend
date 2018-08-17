@@ -129,6 +129,13 @@
                         <span ng-show="empresaForm.endereco.$error.required && !empresaForm.endereco.$pristine" class="help-block">O endereço é obrigatório.</span>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="coordenada" class="col-sm-2 control-label">Localização</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="coordenada" name="coordenada" placeholder="Entrar coordenada" ng-model="Empresa.coordenada">                        
+                        <div id="map" style="width:100%;height:300px;background:yellow"></div>
+                    </div>
+                </div>
                 <div class="form-group" ng-class="{ 'has-error' : empresaForm.telefone.$error.required && !empresaForm.telefone.$pristine }">
                     <label for="telefone" class="col-sm-2 control-label">Telefone *</label>
                     <div class="col-sm-10">
@@ -208,3 +215,21 @@
         </div>
     </div>
 </div>
+
+<!--Script necessary to load google maps engine-->
+<script>
+    function initMap() {
+        var mpdft = { lat: -15.7876253, lng: -47.9077034 };//-15.7876253,-47.9077034
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: mpdft
+        });
+        var marker = new google.maps.Marker({
+            position: mpdft,
+            map: map,
+            title: "MPDFT"
+        });
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsndtkx91Lt1NMI1IRANvDTXUXpkWo1sg&callback=initMap">
+</script>

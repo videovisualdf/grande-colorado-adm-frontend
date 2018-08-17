@@ -4,7 +4,6 @@ angular.module('grande-colorado-adm')
     function ($scope, Empresa, $stateParams, $state, ngDialog, $location, $anchorScroll) {
       $scope.showEmpresas = false;
       $scope.message = "Loading ...";
-
       Empresa.find({
         filter: {
           order: ['nome ASC']
@@ -18,7 +17,6 @@ angular.module('grande-colorado-adm')
           function (response) {
             $scope.message = "Error: " + response.status + " " + response.statusText;
           });
-
       $scope.editEmpresa = function (Empresa) {              
         $scope.Empresa = Empresa;
         $location.hash('cadastro');
@@ -31,6 +29,7 @@ angular.module('grande-colorado-adm')
           regiao: $scope.Empresa.regiao,
           ativo: $scope.Empresa.ativo,          
           endereco: $scope.Empresa.endereco,
+          coordenada: $scope.Empresa.coordenada,
           telefone: $scope.Empresa.telefone,
           celular: $scope.Empresa.celular,
           site: $scope.Empresa.site,
@@ -106,7 +105,6 @@ angular.module('grande-colorado-adm')
             }
           );
       };
-
       $scope.carregaFoto = function(event) {
         var MAX_PHOTO_SIZE = 100000;
         var output = document.getElementById('outputImage');
@@ -147,9 +145,6 @@ angular.module('grande-colorado-adm')
           $scope.Empresa.logo = reader.result;
         }
       };
-
-
     }
   ])
-
   ;
