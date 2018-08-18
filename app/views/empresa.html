@@ -105,7 +105,7 @@
                         <select class="form-control" id="regiao" name="regiao" ng-model="Empresa.regiao" required>
                             <option value="1">1 - DF - 425</option>
                             <option value="2">2 - Região dos Lagos</option>
-                            <option value="3">3 - Sobradinho I</option>                            
+                            <option value="3">3 - Sobradinho I</option>
                             <option value="4">4 - Sobradinho II</option>
                         </select>
                         <span ng-show="empresaForm.regiao.$error.required && !empresaForm.regiao.$pristine" class="help-block">O preenchimento da região é obrigatório.</span>
@@ -132,8 +132,8 @@
                 <div class="form-group">
                     <label for="coordenada" class="col-sm-2 control-label">Localização</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="coordenada" name="coordenada" placeholder="Entrar coordenada" ng-model="Empresa.coordenada">                        
-                        <div id="map" style="width:100%;height:300px;background:yellow"></div>
+                        <input type="text" class="form-control" id="coordenada" name="coordenada" placeholder="Entrar coordenada" ng-model="Empresa.coordenada">
+                        <div id="mapaColorado" style="width:100%;height:400px;"></div>
                     </div>
                 </div>
                 <div class="form-group" ng-class="{ 'has-error' : empresaForm.telefone.$error.required && !empresaForm.telefone.$pristine }">
@@ -218,18 +218,45 @@
 
 <!--Script necessary to load google maps engine-->
 <script>
-    function initMap() {
-        var mpdft = { lat: -15.7876253, lng: -47.9077034 };//-15.7876253,-47.9077034
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 10,
-            center: mpdft
+
+    var marcadores = [];
+    var mapa;
+    var coord = document.getElementById('coordenada').value;
+    var postoColorado = { lat: -15.689690955269533, lng: -47.85949230194092 };
+    // Adiciona o marcador no mapa.
+    function adicionaMarcador(coordenada, mapa) {
+        // Adiciona o marcador na coordenada clicada        
+        if (marcadores.length > 0) {
+            marcadores[0].setMap(null);
+        }
+        marcadores = [];
+        var marcador = new google.maps.Marker({
+            position: coordenada,
+            label: '',
+            map: mapa
         });
-        var marker = new google.maps.Marker({
-            position: mpdft,
-            map: map,
-            title: "MPDFT"
+        mapa.setCenter(coordenada); 
+        marcadores.push(marcador);
+        //Atualiza o ng-model com a coordenada
+        var meuInput = $("#coordenada");
+        meuInput.val(JSON.stringify(coordenada));
+        meuInput.trigger('input');
+    }
+
+    function inicializaMapa() {
+        if (coord == '') {
+            coord = postoColorado;
+        }
+        mapa = new google.maps.Map(document.getElementById('mapaColorado'), {
+            zoom: 11,
+            center: coord
+        });
+        // Este event listener chama adicionaMarcador() qdo o mapa for clicado.
+        google.maps.event.addListener(mapa, 'click', function (event) {
+            adicionaMarcador(event.latLng, mapa);
         });
     }
+
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsndtkx91Lt1NMI1IRANvDTXUXpkWo1sg&callback=initMap">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsndtkx91Lt1NMI1IRANvDTXUXpkWo1sg&callback=inicializaMapa">
 </script>

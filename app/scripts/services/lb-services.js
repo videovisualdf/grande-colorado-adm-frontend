@@ -3079,30 +3079,30 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "PUT",
             },
 
-            // INTERNAL. Use Categoria.categoriasempresa.findById() instead.
-            "prototype$__findById__categoriasempresa": {
+            // INTERNAL. Use Categoria.empresas.findById() instead.
+            "prototype$__findById__empresas": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/Categoria/:id/categoriasempresa/:fk",
+              url: urlBase + "/Categoria/:id/empresas/:fk",
               method: "GET",
             },
 
-            // INTERNAL. Use Categoria.categoriasempresa.destroyById() instead.
-            "prototype$__destroyById__categoriasempresa": {
+            // INTERNAL. Use Categoria.empresas.destroyById() instead.
+            "prototype$__destroyById__empresas": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/Categoria/:id/categoriasempresa/:fk",
+              url: urlBase + "/Categoria/:id/empresas/:fk",
               method: "DELETE",
             },
 
-            // INTERNAL. Use Categoria.categoriasempresa.updateById() instead.
-            "prototype$__updateById__categoriasempresa": {
+            // INTERNAL. Use Categoria.empresas.updateById() instead.
+            "prototype$__updateById__empresas": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/Categoria/:id/categoriasempresa/:fk",
+              url: urlBase + "/Categoria/:id/empresas/:fk",
               method: "PUT",
             },
 
@@ -3131,28 +3131,28 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
-            // INTERNAL. Use Categoria.categoriasempresa() instead.
-            "prototype$__get__categoriasempresa": {
+            // INTERNAL. Use Categoria.empresas() instead.
+            "prototype$__get__empresas": {
               isArray: true,
-              url: urlBase + "/Categoria/:id/categoriasempresa",
+              url: urlBase + "/Categoria/:id/empresas",
               method: "GET",
             },
 
-            // INTERNAL. Use Categoria.categoriasempresa.create() instead.
-            "prototype$__create__categoriasempresa": {
-              url: urlBase + "/Categoria/:id/categoriasempresa",
+            // INTERNAL. Use Categoria.empresas.create() instead.
+            "prototype$__create__empresas": {
+              url: urlBase + "/Categoria/:id/empresas",
               method: "POST",
             },
 
-            // INTERNAL. Use Categoria.categoriasempresa.destroyAll() instead.
-            "prototype$__delete__categoriasempresa": {
-              url: urlBase + "/Categoria/:id/categoriasempresa",
+            // INTERNAL. Use Categoria.empresas.destroyAll() instead.
+            "prototype$__delete__empresas": {
+              url: urlBase + "/Categoria/:id/empresas",
               method: "DELETE",
             },
 
-            // INTERNAL. Use Categoria.categoriasempresa.count() instead.
-            "prototype$__count__categoriasempresa": {
-              url: urlBase + "/Categoria/:id/categoriasempresa/count",
+            // INTERNAL. Use Categoria.empresas.count() instead.
+            "prototype$__count__empresas": {
+              url: urlBase + "/Categoria/:id/empresas/count",
               method: "GET",
             },
 
@@ -3713,9 +3713,54 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "POST",
             },
 
+            /**
+             * @ngdoc method
+             * @name lbServices.Categoria#enviaEmail
+             * @methodOf lbServices.Categoria
+             *
+             * @description
+             *
+             * <em>
+             * (The remote method definition does not provide any description.)
+             * </em>
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `status` – `{string=}` -
+             */
+            "enviaEmail": {
+              url: urlBase + "/Categoria/enviaEmail",
+              method: "POST",
+            },
+
             // INTERNAL. Use Subcategoria.categoria() instead.
             "::get::Subcategoria::categoria": {
               url: urlBase + "/Subcategoria/:id/categoria",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Empresa.categoria() instead.
+            "::get::Empresa::categoria": {
+              url: urlBase + "/Empresas/:id/categoria",
               method: "GET",
             },
 
@@ -4310,27 +4355,27 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         };
     /**
      * @ngdoc object
-     * @name lbServices.Categoria.categoriasempresa
-     * @header lbServices.Categoria.categoriasempresa
+     * @name lbServices.Categoria.empresas
+     * @header lbServices.Categoria.empresas
      * @object
      * @description
      *
-     * The object `Categoria.categoriasempresa` groups methods
-     * manipulating `CategoriasEmpresa` instances related to `Categoria`.
+     * The object `Categoria.empresas` groups methods
+     * manipulating `Empresa` instances related to `Categoria`.
      *
-     * Call {@link lbServices.Categoria#categoriasempresa Categoria.categoriasempresa()}
+     * Call {@link lbServices.Categoria#empresas Categoria.empresas()}
      * to query all related instances.
      */
 
 
             /**
              * @ngdoc method
-             * @name lbServices.Categoria#categoriasempresa
+             * @name lbServices.Categoria#empresas
              * @methodOf lbServices.Categoria
              *
              * @description
              *
-             * Queries categoriasempresa of Categoria.
+             * Queries empresas of Categoria.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -4354,23 +4399,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `CategoriasEmpresa` object.)
+             * This usually means the response is a `Empresa` object.)
              * </em>
              */
-        R.categoriasempresa = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::get::Categoria::categoriasempresa"];
+        R.empresas = function() {
+          var TargetResource = $injector.get("Empresa");
+          var action = TargetResource["::get::Categoria::empresas"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Categoria.categoriasempresa#count
-             * @methodOf lbServices.Categoria.categoriasempresa
+             * @name lbServices.Categoria.empresas#count
+             * @methodOf lbServices.Categoria.empresas
              *
              * @description
              *
-             * Counts categoriasempresa of Categoria.
+             * Counts empresas of Categoria.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -4396,20 +4441,20 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `count` – `{number=}` -
              */
-        R.categoriasempresa.count = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::count::Categoria::categoriasempresa"];
+        R.empresas.count = function() {
+          var TargetResource = $injector.get("Empresa");
+          var action = TargetResource["::count::Categoria::empresas"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Categoria.categoriasempresa#create
-             * @methodOf lbServices.Categoria.categoriasempresa
+             * @name lbServices.Categoria.empresas#create
+             * @methodOf lbServices.Categoria.empresas
              *
              * @description
              *
-             * Creates a new instance in categoriasempresa of this model.
+             * Creates a new instance in empresas of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -4435,23 +4480,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `CategoriasEmpresa` object.)
+             * This usually means the response is a `Empresa` object.)
              * </em>
              */
-        R.categoriasempresa.create = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::create::Categoria::categoriasempresa"];
+        R.empresas.create = function() {
+          var TargetResource = $injector.get("Empresa");
+          var action = TargetResource["::create::Categoria::empresas"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Categoria.categoriasempresa#createMany
-             * @methodOf lbServices.Categoria.categoriasempresa
+             * @name lbServices.Categoria.empresas#createMany
+             * @methodOf lbServices.Categoria.empresas
              *
              * @description
              *
-             * Creates a new instance in categoriasempresa of this model.
+             * Creates a new instance in empresas of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -4477,23 +4522,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `CategoriasEmpresa` object.)
+             * This usually means the response is a `Empresa` object.)
              * </em>
              */
-        R.categoriasempresa.createMany = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::createMany::Categoria::categoriasempresa"];
+        R.empresas.createMany = function() {
+          var TargetResource = $injector.get("Empresa");
+          var action = TargetResource["::createMany::Categoria::empresas"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Categoria.categoriasempresa#destroyAll
-             * @methodOf lbServices.Categoria.categoriasempresa
+             * @name lbServices.Categoria.empresas#destroyAll
+             * @methodOf lbServices.Categoria.empresas
              *
              * @description
              *
-             * Deletes all categoriasempresa of this model.
+             * Deletes all empresas of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -4517,20 +4562,20 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * This method returns no data.
              */
-        R.categoriasempresa.destroyAll = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::delete::Categoria::categoriasempresa"];
+        R.empresas.destroyAll = function() {
+          var TargetResource = $injector.get("Empresa");
+          var action = TargetResource["::delete::Categoria::empresas"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Categoria.categoriasempresa#destroyById
-             * @methodOf lbServices.Categoria.categoriasempresa
+             * @name lbServices.Categoria.empresas#destroyById
+             * @methodOf lbServices.Categoria.empresas
              *
              * @description
              *
-             * Delete a related item by id for categoriasempresa.
+             * Delete a related item by id for empresas.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -4538,7 +4583,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `options` – `{object=}` -
              *
-             *  - `fk` – `{*}` - Foreign key for categoriasempresa
+             *  - `fk` – `{*}` - Foreign key for empresas
              *
              *  - `options` – `{object=}` -
              *
@@ -4554,20 +4599,20 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * This method returns no data.
              */
-        R.categoriasempresa.destroyById = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::destroyById::Categoria::categoriasempresa"];
+        R.empresas.destroyById = function() {
+          var TargetResource = $injector.get("Empresa");
+          var action = TargetResource["::destroyById::Categoria::empresas"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Categoria.categoriasempresa#findById
-             * @methodOf lbServices.Categoria.categoriasempresa
+             * @name lbServices.Categoria.empresas#findById
+             * @methodOf lbServices.Categoria.empresas
              *
              * @description
              *
-             * Find a related item by id for categoriasempresa.
+             * Find a related item by id for empresas.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -4575,7 +4620,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `options` – `{object=}` -
              *
-             *  - `fk` – `{*}` - Foreign key for categoriasempresa
+             *  - `fk` – `{*}` - Foreign key for empresas
              *
              *  - `options` – `{object=}` -
              *
@@ -4591,29 +4636,29 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `CategoriasEmpresa` object.)
+             * This usually means the response is a `Empresa` object.)
              * </em>
              */
-        R.categoriasempresa.findById = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::findById::Categoria::categoriasempresa"];
+        R.empresas.findById = function() {
+          var TargetResource = $injector.get("Empresa");
+          var action = TargetResource["::findById::Categoria::empresas"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Categoria.categoriasempresa#updateById
-             * @methodOf lbServices.Categoria.categoriasempresa
+             * @name lbServices.Categoria.empresas#updateById
+             * @methodOf lbServices.Categoria.empresas
              *
              * @description
              *
-             * Update a related item by id for categoriasempresa.
+             * Update a related item by id for empresas.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - Categoria id
              *
-             *  - `fk` – `{*}` - Foreign key for categoriasempresa
+             *  - `fk` – `{*}` - Foreign key for empresas
              *
              * @param {Object} postData Request data.
              *
@@ -4635,12 +4680,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `CategoriasEmpresa` object.)
+             * This usually means the response is a `Empresa` object.)
              * </em>
              */
-        R.categoriasempresa.updateById = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::updateById::Categoria::categoriasempresa"];
+        R.empresas.updateById = function() {
+          var TargetResource = $injector.get("Empresa");
+          var action = TargetResource["::updateById::Categoria::empresas"];
           return action.apply(R, arguments);
         };
 
@@ -4681,55 +4726,55 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
-            // INTERNAL. Use Subcategoria.categoriasempresa.findById() instead.
-            "prototype$__findById__categoriasempresa": {
+            // INTERNAL. Use Subcategoria.empresas.findById() instead.
+            "prototype$__findById__empresas": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/Subcategoria/:id/categoriasempresa/:fk",
+              url: urlBase + "/Subcategoria/:id/empresas/:fk",
               method: "GET",
             },
 
-            // INTERNAL. Use Subcategoria.categoriasempresa.destroyById() instead.
-            "prototype$__destroyById__categoriasempresa": {
+            // INTERNAL. Use Subcategoria.empresas.destroyById() instead.
+            "prototype$__destroyById__empresas": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/Subcategoria/:id/categoriasempresa/:fk",
+              url: urlBase + "/Subcategoria/:id/empresas/:fk",
               method: "DELETE",
             },
 
-            // INTERNAL. Use Subcategoria.categoriasempresa.updateById() instead.
-            "prototype$__updateById__categoriasempresa": {
+            // INTERNAL. Use Subcategoria.empresas.updateById() instead.
+            "prototype$__updateById__empresas": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/Subcategoria/:id/categoriasempresa/:fk",
+              url: urlBase + "/Subcategoria/:id/empresas/:fk",
               method: "PUT",
             },
 
-            // INTERNAL. Use Subcategoria.categoriasempresa() instead.
-            "prototype$__get__categoriasempresa": {
+            // INTERNAL. Use Subcategoria.empresas() instead.
+            "prototype$__get__empresas": {
               isArray: true,
-              url: urlBase + "/Subcategoria/:id/categoriasempresa",
+              url: urlBase + "/Subcategoria/:id/empresas",
               method: "GET",
             },
 
-            // INTERNAL. Use Subcategoria.categoriasempresa.create() instead.
-            "prototype$__create__categoriasempresa": {
-              url: urlBase + "/Subcategoria/:id/categoriasempresa",
+            // INTERNAL. Use Subcategoria.empresas.create() instead.
+            "prototype$__create__empresas": {
+              url: urlBase + "/Subcategoria/:id/empresas",
               method: "POST",
             },
 
-            // INTERNAL. Use Subcategoria.categoriasempresa.destroyAll() instead.
-            "prototype$__delete__categoriasempresa": {
-              url: urlBase + "/Subcategoria/:id/categoriasempresa",
+            // INTERNAL. Use Subcategoria.empresas.destroyAll() instead.
+            "prototype$__delete__empresas": {
+              url: urlBase + "/Subcategoria/:id/empresas",
               method: "DELETE",
             },
 
-            // INTERNAL. Use Subcategoria.categoriasempresa.count() instead.
-            "prototype$__count__categoriasempresa": {
-              url: urlBase + "/Subcategoria/:id/categoriasempresa/count",
+            // INTERNAL. Use Subcategoria.empresas.count() instead.
+            "prototype$__count__empresas": {
+              url: urlBase + "/Subcategoria/:id/empresas/count",
               method: "GET",
             },
 
@@ -5349,6 +5394,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
+            // INTERNAL. Use Empresa.subcategoria() instead.
+            "::get::Empresa::subcategoria": {
+              url: urlBase + "/Empresas/:id/subcategoria",
+              method: "GET",
+            },
+
             // INTERNAL. Use CategoriasEmpresa.subcategoria() instead.
             "::get::CategoriasEmpresa::subcategoria": {
               url: urlBase + "/CategoriasEmpresas/:id/subcategoria",
@@ -5645,27 +5696,27 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         };
     /**
      * @ngdoc object
-     * @name lbServices.Subcategoria.categoriasempresa
-     * @header lbServices.Subcategoria.categoriasempresa
+     * @name lbServices.Subcategoria.empresas
+     * @header lbServices.Subcategoria.empresas
      * @object
      * @description
      *
-     * The object `Subcategoria.categoriasempresa` groups methods
-     * manipulating `CategoriasEmpresa` instances related to `Subcategoria`.
+     * The object `Subcategoria.empresas` groups methods
+     * manipulating `Empresa` instances related to `Subcategoria`.
      *
-     * Call {@link lbServices.Subcategoria#categoriasempresa Subcategoria.categoriasempresa()}
+     * Call {@link lbServices.Subcategoria#empresas Subcategoria.empresas()}
      * to query all related instances.
      */
 
 
             /**
              * @ngdoc method
-             * @name lbServices.Subcategoria#categoriasempresa
+             * @name lbServices.Subcategoria#empresas
              * @methodOf lbServices.Subcategoria
              *
              * @description
              *
-             * Queries categoriasempresa of Subcategoria.
+             * Queries empresas of Subcategoria.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -5689,23 +5740,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `CategoriasEmpresa` object.)
+             * This usually means the response is a `Empresa` object.)
              * </em>
              */
-        R.categoriasempresa = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::get::Subcategoria::categoriasempresa"];
+        R.empresas = function() {
+          var TargetResource = $injector.get("Empresa");
+          var action = TargetResource["::get::Subcategoria::empresas"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Subcategoria.categoriasempresa#count
-             * @methodOf lbServices.Subcategoria.categoriasempresa
+             * @name lbServices.Subcategoria.empresas#count
+             * @methodOf lbServices.Subcategoria.empresas
              *
              * @description
              *
-             * Counts categoriasempresa of Subcategoria.
+             * Counts empresas of Subcategoria.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -5731,20 +5782,20 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `count` – `{number=}` -
              */
-        R.categoriasempresa.count = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::count::Subcategoria::categoriasempresa"];
+        R.empresas.count = function() {
+          var TargetResource = $injector.get("Empresa");
+          var action = TargetResource["::count::Subcategoria::empresas"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Subcategoria.categoriasempresa#create
-             * @methodOf lbServices.Subcategoria.categoriasempresa
+             * @name lbServices.Subcategoria.empresas#create
+             * @methodOf lbServices.Subcategoria.empresas
              *
              * @description
              *
-             * Creates a new instance in categoriasempresa of this model.
+             * Creates a new instance in empresas of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -5770,23 +5821,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `CategoriasEmpresa` object.)
+             * This usually means the response is a `Empresa` object.)
              * </em>
              */
-        R.categoriasempresa.create = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::create::Subcategoria::categoriasempresa"];
+        R.empresas.create = function() {
+          var TargetResource = $injector.get("Empresa");
+          var action = TargetResource["::create::Subcategoria::empresas"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Subcategoria.categoriasempresa#createMany
-             * @methodOf lbServices.Subcategoria.categoriasempresa
+             * @name lbServices.Subcategoria.empresas#createMany
+             * @methodOf lbServices.Subcategoria.empresas
              *
              * @description
              *
-             * Creates a new instance in categoriasempresa of this model.
+             * Creates a new instance in empresas of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -5812,23 +5863,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `CategoriasEmpresa` object.)
+             * This usually means the response is a `Empresa` object.)
              * </em>
              */
-        R.categoriasempresa.createMany = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::createMany::Subcategoria::categoriasempresa"];
+        R.empresas.createMany = function() {
+          var TargetResource = $injector.get("Empresa");
+          var action = TargetResource["::createMany::Subcategoria::empresas"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Subcategoria.categoriasempresa#destroyAll
-             * @methodOf lbServices.Subcategoria.categoriasempresa
+             * @name lbServices.Subcategoria.empresas#destroyAll
+             * @methodOf lbServices.Subcategoria.empresas
              *
              * @description
              *
-             * Deletes all categoriasempresa of this model.
+             * Deletes all empresas of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -5852,20 +5903,20 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * This method returns no data.
              */
-        R.categoriasempresa.destroyAll = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::delete::Subcategoria::categoriasempresa"];
+        R.empresas.destroyAll = function() {
+          var TargetResource = $injector.get("Empresa");
+          var action = TargetResource["::delete::Subcategoria::empresas"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Subcategoria.categoriasempresa#destroyById
-             * @methodOf lbServices.Subcategoria.categoriasempresa
+             * @name lbServices.Subcategoria.empresas#destroyById
+             * @methodOf lbServices.Subcategoria.empresas
              *
              * @description
              *
-             * Delete a related item by id for categoriasempresa.
+             * Delete a related item by id for empresas.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -5873,7 +5924,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `options` – `{object=}` -
              *
-             *  - `fk` – `{*}` - Foreign key for categoriasempresa
+             *  - `fk` – `{*}` - Foreign key for empresas
              *
              *  - `options` – `{object=}` -
              *
@@ -5889,20 +5940,20 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * This method returns no data.
              */
-        R.categoriasempresa.destroyById = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::destroyById::Subcategoria::categoriasempresa"];
+        R.empresas.destroyById = function() {
+          var TargetResource = $injector.get("Empresa");
+          var action = TargetResource["::destroyById::Subcategoria::empresas"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Subcategoria.categoriasempresa#findById
-             * @methodOf lbServices.Subcategoria.categoriasempresa
+             * @name lbServices.Subcategoria.empresas#findById
+             * @methodOf lbServices.Subcategoria.empresas
              *
              * @description
              *
-             * Find a related item by id for categoriasempresa.
+             * Find a related item by id for empresas.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -5910,7 +5961,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `options` – `{object=}` -
              *
-             *  - `fk` – `{*}` - Foreign key for categoriasempresa
+             *  - `fk` – `{*}` - Foreign key for empresas
              *
              *  - `options` – `{object=}` -
              *
@@ -5926,29 +5977,29 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `CategoriasEmpresa` object.)
+             * This usually means the response is a `Empresa` object.)
              * </em>
              */
-        R.categoriasempresa.findById = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::findById::Subcategoria::categoriasempresa"];
+        R.empresas.findById = function() {
+          var TargetResource = $injector.get("Empresa");
+          var action = TargetResource["::findById::Subcategoria::empresas"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Subcategoria.categoriasempresa#updateById
-             * @methodOf lbServices.Subcategoria.categoriasempresa
+             * @name lbServices.Subcategoria.empresas#updateById
+             * @methodOf lbServices.Subcategoria.empresas
              *
              * @description
              *
-             * Update a related item by id for categoriasempresa.
+             * Update a related item by id for empresas.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - Subcategoria id
              *
-             *  - `fk` – `{*}` - Foreign key for categoriasempresa
+             *  - `fk` – `{*}` - Foreign key for empresas
              *
              * @param {Object} postData Request data.
              *
@@ -5970,12 +6021,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `CategoriasEmpresa` object.)
+             * This usually means the response is a `Empresa` object.)
              * </em>
              */
-        R.categoriasempresa.updateById = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::updateById::Subcategoria::categoriasempresa"];
+        R.empresas.updateById = function() {
+          var TargetResource = $injector.get("Empresa");
+          var action = TargetResource["::updateById::Subcategoria::empresas"];
           return action.apply(R, arguments);
         };
 
@@ -6010,55 +6061,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
           { 'id': '@id' },
           {
 
-            // INTERNAL. Use Empresa.categoriasempresa.findById() instead.
-            "prototype$__findById__categoriasempresa": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Empresas/:id/categoriasempresa/:fk",
+            // INTERNAL. Use Empresa.categoria() instead.
+            "prototype$__get__categoria": {
+              url: urlBase + "/Empresas/:id/categoria",
               method: "GET",
             },
 
-            // INTERNAL. Use Empresa.categoriasempresa.destroyById() instead.
-            "prototype$__destroyById__categoriasempresa": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Empresas/:id/categoriasempresa/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Empresa.categoriasempresa.updateById() instead.
-            "prototype$__updateById__categoriasempresa": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Empresas/:id/categoriasempresa/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Empresa.categoriasempresa() instead.
-            "prototype$__get__categoriasempresa": {
-              isArray: true,
-              url: urlBase + "/Empresas/:id/categoriasempresa",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Empresa.categoriasempresa.create() instead.
-            "prototype$__create__categoriasempresa": {
-              url: urlBase + "/Empresas/:id/categoriasempresa",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Empresa.categoriasempresa.destroyAll() instead.
-            "prototype$__delete__categoriasempresa": {
-              url: urlBase + "/Empresas/:id/categoriasempresa",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Empresa.categoriasempresa.count() instead.
-            "prototype$__count__categoriasempresa": {
-              url: urlBase + "/Empresas/:id/categoriasempresa/count",
+            // INTERNAL. Use Empresa.subcategoria() instead.
+            "prototype$__get__subcategoria": {
+              url: urlBase + "/Empresas/:id/subcategoria",
               method: "GET",
             },
 
@@ -6619,6 +6630,124 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "POST",
             },
 
+            // INTERNAL. Use Categoria.empresas.findById() instead.
+            "::findById::Categoria::empresas": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Categoria/:id/empresas/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Categoria.empresas.destroyById() instead.
+            "::destroyById::Categoria::empresas": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Categoria/:id/empresas/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Categoria.empresas.updateById() instead.
+            "::updateById::Categoria::empresas": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Categoria/:id/empresas/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Categoria.empresas() instead.
+            "::get::Categoria::empresas": {
+              isArray: true,
+              url: urlBase + "/Categoria/:id/empresas",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Categoria.empresas.create() instead.
+            "::create::Categoria::empresas": {
+              url: urlBase + "/Categoria/:id/empresas",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Categoria.empresas.createMany() instead.
+            "::createMany::Categoria::empresas": {
+              isArray: true,
+              url: urlBase + "/Categoria/:id/empresas",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Categoria.empresas.destroyAll() instead.
+            "::delete::Categoria::empresas": {
+              url: urlBase + "/Categoria/:id/empresas",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Categoria.empresas.count() instead.
+            "::count::Categoria::empresas": {
+              url: urlBase + "/Categoria/:id/empresas/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Subcategoria.empresas.findById() instead.
+            "::findById::Subcategoria::empresas": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Subcategoria/:id/empresas/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Subcategoria.empresas.destroyById() instead.
+            "::destroyById::Subcategoria::empresas": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Subcategoria/:id/empresas/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Subcategoria.empresas.updateById() instead.
+            "::updateById::Subcategoria::empresas": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Subcategoria/:id/empresas/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Subcategoria.empresas() instead.
+            "::get::Subcategoria::empresas": {
+              isArray: true,
+              url: urlBase + "/Subcategoria/:id/empresas",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Subcategoria.empresas.create() instead.
+            "::create::Subcategoria::empresas": {
+              url: urlBase + "/Subcategoria/:id/empresas",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Subcategoria.empresas.createMany() instead.
+            "::createMany::Subcategoria::empresas": {
+              isArray: true,
+              url: urlBase + "/Subcategoria/:id/empresas",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Subcategoria.empresas.destroyAll() instead.
+            "::delete::Subcategoria::empresas": {
+              url: urlBase + "/Subcategoria/:id/empresas",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Subcategoria.empresas.count() instead.
+            "::count::Subcategoria::empresas": {
+              url: urlBase + "/Subcategoria/:id/empresas/count",
+              method: "GET",
+            },
+
             // INTERNAL. Use CategoriasEmpresa.empresa() instead.
             "::get::CategoriasEmpresa::empresa": {
               url: urlBase + "/CategoriasEmpresas/:id/empresa",
@@ -6873,29 +7002,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         */
         R.modelName = "Empresa";
 
-    /**
-     * @ngdoc object
-     * @name lbServices.Empresa.categoriasempresa
-     * @header lbServices.Empresa.categoriasempresa
-     * @object
-     * @description
-     *
-     * The object `Empresa.categoriasempresa` groups methods
-     * manipulating `CategoriasEmpresa` instances related to `Empresa`.
-     *
-     * Call {@link lbServices.Empresa#categoriasempresa Empresa.categoriasempresa()}
-     * to query all related instances.
-     */
-
 
             /**
              * @ngdoc method
-             * @name lbServices.Empresa#categoriasempresa
+             * @name lbServices.Empresa#categoria
              * @methodOf lbServices.Empresa
              *
              * @description
              *
-             * Queries categoriasempresa of Empresa.
+             * Fetches belongsTo relation categoria.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -6903,88 +7018,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `options` – `{object=}` -
              *
-             *  - `filter` – `{object=}` -
-             *
-             *  - `options` – `{object=}` -
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `CategoriasEmpresa` object.)
-             * </em>
-             */
-        R.categoriasempresa = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::get::Empresa::categoriasempresa"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Empresa.categoriasempresa#count
-             * @methodOf lbServices.Empresa.categoriasempresa
-             *
-             * @description
-             *
-             * Counts categoriasempresa of Empresa.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - Empresa id
-             *
-             *  - `options` – `{object=}` -
-             *
-             *  - `where` – `{object=}` - Criteria to match model instances
-             *
-             *  - `options` – `{object=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `count` – `{number=}` -
-             */
-        R.categoriasempresa.count = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::count::Empresa::categoriasempresa"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Empresa.categoriasempresa#create
-             * @methodOf lbServices.Empresa.categoriasempresa
-             *
-             * @description
-             *
-             * Creates a new instance in categoriasempresa of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - Empresa id
-             *
-             * @param {Object} postData Request data.
-             *
-             *  - `options` – `{object=}` -
-             *
-             *  - `data` – `{object=}` -
+             *  - `refresh` – `{boolean=}` -
              *
              *  - `options` – `{object=}` -
              *
@@ -7000,65 +7034,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `CategoriasEmpresa` object.)
+             * This usually means the response is a `Categoria` object.)
              * </em>
              */
-        R.categoriasempresa.create = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::create::Empresa::categoriasempresa"];
+        R.categoria = function() {
+          var TargetResource = $injector.get("Categoria");
+          var action = TargetResource["::get::Empresa::categoria"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Empresa.categoriasempresa#createMany
-             * @methodOf lbServices.Empresa.categoriasempresa
+             * @name lbServices.Empresa#subcategoria
+             * @methodOf lbServices.Empresa
              *
              * @description
              *
-             * Creates a new instance in categoriasempresa of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - Empresa id
-             *
-             * @param {Object} postData Request data.
-             *
-             *  - `options` – `{object=}` -
-             *
-             *  - `data` – `{object=}` -
-             *
-             *  - `options` – `{object=}` -
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `CategoriasEmpresa` object.)
-             * </em>
-             */
-        R.categoriasempresa.createMany = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::createMany::Empresa::categoriasempresa"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Empresa.categoriasempresa#destroyAll
-             * @methodOf lbServices.Empresa.categoriasempresa
-             *
-             * @description
-             *
-             * Deletes all categoriasempresa of this model.
+             * Fetches belongsTo relation subcategoria.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -7066,81 +7058,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `options` – `{object=}` -
              *
-             *  - `where` – `{object=}` -
-             *
-             *  - `options` – `{object=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.categoriasempresa.destroyAll = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::delete::Empresa::categoriasempresa"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Empresa.categoriasempresa#destroyById
-             * @methodOf lbServices.Empresa.categoriasempresa
-             *
-             * @description
-             *
-             * Delete a related item by id for categoriasempresa.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - Empresa id
-             *
-             *  - `options` – `{object=}` -
-             *
-             *  - `fk` – `{*}` - Foreign key for categoriasempresa
-             *
-             *  - `options` – `{object=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.categoriasempresa.destroyById = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::destroyById::Empresa::categoriasempresa"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Empresa.categoriasempresa#findById
-             * @methodOf lbServices.Empresa.categoriasempresa
-             *
-             * @description
-             *
-             * Find a related item by id for categoriasempresa.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - Empresa id
-             *
-             *  - `options` – `{object=}` -
-             *
-             *  - `fk` – `{*}` - Foreign key for categoriasempresa
+             *  - `refresh` – `{boolean=}` -
              *
              *  - `options` – `{object=}` -
              *
@@ -7156,56 +7074,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `CategoriasEmpresa` object.)
+             * This usually means the response is a `Subcategoria` object.)
              * </em>
              */
-        R.categoriasempresa.findById = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::findById::Empresa::categoriasempresa"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Empresa.categoriasempresa#updateById
-             * @methodOf lbServices.Empresa.categoriasempresa
-             *
-             * @description
-             *
-             * Update a related item by id for categoriasempresa.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - Empresa id
-             *
-             *  - `fk` – `{*}` - Foreign key for categoriasempresa
-             *
-             * @param {Object} postData Request data.
-             *
-             *  - `options` – `{object=}` -
-             *
-             *  - `data` – `{object=}` -
-             *
-             *  - `options` – `{object=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `CategoriasEmpresa` object.)
-             * </em>
-             */
-        R.categoriasempresa.updateById = function() {
-          var TargetResource = $injector.get("CategoriasEmpresa");
-          var action = TargetResource["::updateById::Empresa::categoriasempresa"];
+        R.subcategoria = function() {
+          var TargetResource = $injector.get("Subcategoria");
+          var action = TargetResource["::get::Empresa::subcategoria"];
           return action.apply(R, arguments);
         };
 
@@ -7813,183 +7687,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "createChangeStream": {
               url: urlBase + "/CategoriasEmpresas/change-stream",
               method: "POST",
-            },
-
-            // INTERNAL. Use Categoria.categoriasempresa.findById() instead.
-            "::findById::Categoria::categoriasempresa": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Categoria/:id/categoriasempresa/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Categoria.categoriasempresa.destroyById() instead.
-            "::destroyById::Categoria::categoriasempresa": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Categoria/:id/categoriasempresa/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Categoria.categoriasempresa.updateById() instead.
-            "::updateById::Categoria::categoriasempresa": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Categoria/:id/categoriasempresa/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Categoria.categoriasempresa() instead.
-            "::get::Categoria::categoriasempresa": {
-              isArray: true,
-              url: urlBase + "/Categoria/:id/categoriasempresa",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Categoria.categoriasempresa.create() instead.
-            "::create::Categoria::categoriasempresa": {
-              url: urlBase + "/Categoria/:id/categoriasempresa",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Categoria.categoriasempresa.createMany() instead.
-            "::createMany::Categoria::categoriasempresa": {
-              isArray: true,
-              url: urlBase + "/Categoria/:id/categoriasempresa",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Categoria.categoriasempresa.destroyAll() instead.
-            "::delete::Categoria::categoriasempresa": {
-              url: urlBase + "/Categoria/:id/categoriasempresa",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Categoria.categoriasempresa.count() instead.
-            "::count::Categoria::categoriasempresa": {
-              url: urlBase + "/Categoria/:id/categoriasempresa/count",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Subcategoria.categoriasempresa.findById() instead.
-            "::findById::Subcategoria::categoriasempresa": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Subcategoria/:id/categoriasempresa/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Subcategoria.categoriasempresa.destroyById() instead.
-            "::destroyById::Subcategoria::categoriasempresa": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Subcategoria/:id/categoriasempresa/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Subcategoria.categoriasempresa.updateById() instead.
-            "::updateById::Subcategoria::categoriasempresa": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Subcategoria/:id/categoriasempresa/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Subcategoria.categoriasempresa() instead.
-            "::get::Subcategoria::categoriasempresa": {
-              isArray: true,
-              url: urlBase + "/Subcategoria/:id/categoriasempresa",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Subcategoria.categoriasempresa.create() instead.
-            "::create::Subcategoria::categoriasempresa": {
-              url: urlBase + "/Subcategoria/:id/categoriasempresa",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Subcategoria.categoriasempresa.createMany() instead.
-            "::createMany::Subcategoria::categoriasempresa": {
-              isArray: true,
-              url: urlBase + "/Subcategoria/:id/categoriasempresa",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Subcategoria.categoriasempresa.destroyAll() instead.
-            "::delete::Subcategoria::categoriasempresa": {
-              url: urlBase + "/Subcategoria/:id/categoriasempresa",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Subcategoria.categoriasempresa.count() instead.
-            "::count::Subcategoria::categoriasempresa": {
-              url: urlBase + "/Subcategoria/:id/categoriasempresa/count",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Empresa.categoriasempresa.findById() instead.
-            "::findById::Empresa::categoriasempresa": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Empresas/:id/categoriasempresa/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Empresa.categoriasempresa.destroyById() instead.
-            "::destroyById::Empresa::categoriasempresa": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Empresas/:id/categoriasempresa/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Empresa.categoriasempresa.updateById() instead.
-            "::updateById::Empresa::categoriasempresa": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Empresas/:id/categoriasempresa/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Empresa.categoriasempresa() instead.
-            "::get::Empresa::categoriasempresa": {
-              isArray: true,
-              url: urlBase + "/Empresas/:id/categoriasempresa",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Empresa.categoriasempresa.create() instead.
-            "::create::Empresa::categoriasempresa": {
-              url: urlBase + "/Empresas/:id/categoriasempresa",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Empresa.categoriasempresa.createMany() instead.
-            "::createMany::Empresa::categoriasempresa": {
-              isArray: true,
-              url: urlBase + "/Empresas/:id/categoriasempresa",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Empresa.categoriasempresa.destroyAll() instead.
-            "::delete::Empresa::categoriasempresa": {
-              url: urlBase + "/Empresas/:id/categoriasempresa",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Empresa.categoriasempresa.count() instead.
-            "::count::Empresa::categoriasempresa": {
-              url: urlBase + "/Empresas/:id/categoriasempresa/count",
-              method: "GET",
             },
           }
         );
